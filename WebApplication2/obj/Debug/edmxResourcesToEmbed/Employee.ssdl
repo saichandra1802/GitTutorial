@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KudvenkatsqlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.CUSTOMER' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CUSTOMER">
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="15" />
+        </EntityType>-->
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="Salary" Type="nvarchar" MaxLength="40" />
+    <Property Name="DepartmentId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.EmpWithManager' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EmpWithManager">
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerId" Type="int" />
+        </EntityType>-->
+  <EntityType Name="ProjectDetail">
+    <Key>
+      <PropertyRef Name="ProjectDetailID" />
+    </Key>
+    <Property Name="ProjectDetailID" Type="int" Nullable="false" />
+    <Property Name="EmployeeDetailID" Type="int" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SAI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="SKILLID" Type="int" />
+  </EntityType>
+  <EntityType Name="SAISKILLS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="selfJointblEmp">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManagerId" Type="int" />
+  </EntityType>
+  <EntityType Name="SKILL_SAI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SAIID" Type="int" />
+    <Property Name="SKILL" Type="int" />
+  </EntityType>
+  <EntityType Name="TableA">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TableAE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TableB">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TableBE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblAudit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblAudit">
+          <Property Name="Id" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblDateTime' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblDateTime">
+          <Property Name="c_Time" Type="time" Precision="7" />
+          <Property Name="c_date" Type="date" />
+          <Property Name="c_smalldatetime" Type="smalldatetime" />
+          <Property Name="c_datetime" Type="datetime" />
+          <Property Name="c_datetime2" Type="datetime2" Precision="7" />
+          <Property Name="c_datetimeoffset" Type="datetimeoffset" Precision="7" />
+        </EntityType>-->
+  <EntityType Name="tblDept">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentHead" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblEmployee' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblEmployee">
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+        </EntityType>-->
+  <EntityType Name="tblGender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblOrganization' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblOrganization">
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerId" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Kudvenkatsql.dbo.tblPerson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GenderId" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Kudvenkatsql.dbo.tblperson1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblperson1">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblProd' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblProd">
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="UnitPrice" Type="nvarchar" MaxLength="50" />
+          <Property Name="QtyAvailable" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblProdSales' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblProdSales">
+          <Property Name="ProductsaleId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="QuantitySold" Type="int" />
+        </EntityType>-->
+  <EntityType Name="tblProducts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Kudvenkatsql.dbo.tblProductSales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblProductSales">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="QuantitySold" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblProductSalesSub' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblProductSalesSub">
+          <Property Name="Id" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="UnitPrice" Type="nvarchar" MaxLength="50" />
+          <Property Name="QuantitySold" Type="int" />
+        </EntityType>-->
+  <EntityType Name="tblProductsSales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="productid" Type="int" />
+    <Property Name="unitprice" Type="int" />
+    <Property Name="Quantitysold" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblProductsSub' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblProductsSub">
+          <Property Name="Id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblSale' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblSale">
+          <Property Name="SalesAgent" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesAmount" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Kudvenkatsql.dbo.tblsales' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblsales">
+          <Property Name="SalesAgent" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesAmount" Type="int" />
+          <Property Name="ID" Type="int" />
+        </EntityType>-->
+  <Association Name="FK__Employee__Depart__4924D839">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__produ__56B3DD81">
+    <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="0..1" />
+    <End Role="tblProductsSales" Type="Self.tblProductsSales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProducts">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblProductsSales">
+        <PropertyRef Name="productid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'Kudvenkatsql.dbo.tblEmployee' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_tblEmployee_tblDept" />-->
+  <Association Name="FK_tblPerson_tblGender">
+    <End Role="tblGender" Type="Self.tblGender" Multiplicity="0..1" />
+    <End Role="tblPerson" Type="Self.tblPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblPerson">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KudvenkatsqlModelStoreContainer">
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectDetail" EntityType="Self.ProjectDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SAI" EntityType="Self.SAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SAISKILLS" EntityType="Self.SAISKILLS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="selfJointblEmp" EntityType="Self.selfJointblEmp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SKILL_SAI" EntityType="Self.SKILL_SAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableA" EntityType="Self.TableA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableAE" EntityType="Self.TableAE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableB" EntityType="Self.TableB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableBE" EntityType="Self.TableBE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDept" EntityType="Self.tblDept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGender" EntityType="Self.tblGender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProducts" EntityType="Self.tblProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProductsSales" EntityType="Self.tblProductsSales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPerson" EntityType="Self.tblPerson" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblPerson].[ID] AS [ID], 
+    [tblPerson].[Name] AS [Name], 
+    [tblPerson].[Email] AS [Email], 
+    [tblPerson].[GenderId] AS [GenderId], 
+    [tblPerson].[Age] AS [Age], 
+    [tblPerson].[City] AS [City]
+    FROM [dbo].[tblPerson] AS [tblPerson]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblperson1" EntityType="Self.tblperson1" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblperson1].[PersonId] AS [PersonId], 
+    [tblperson1].[Name] AS [Name]
+    FROM [dbo].[tblperson1] AS [tblperson1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblProductSales" EntityType="Self.tblProductSales" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblProductSales].[ProductId] AS [ProductId], 
+    [tblProductSales].[QuantitySold] AS [QuantitySold]
+    FROM [dbo].[tblProductSales] AS [tblProductSales]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Employee__Depart__4924D839" Association="Self.FK__Employee__Depart__4924D839">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__produ__56B3DD81" Association="Self.FK__tblProduc__produ__56B3DD81">
+      <End Role="tblProducts" EntitySet="tblProducts" />
+      <End Role="tblProductsSales" EntitySet="tblProductsSales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPerson_tblGender" Association="Self.FK_tblPerson_tblGender">
+      <End Role="tblGender" EntitySet="tblGender" />
+      <End Role="tblPerson" EntitySet="tblPerson" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

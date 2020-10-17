@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KudvenkatsqlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="KudvenkatsqlModel.FK__Employee__Depart__4924D839" FromRole="Employee" ToRole="Department" />
+  </EntityType>
+  <EntityContainer Name="KudvenkatsqlEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Departments" EntityType="KudvenkatsqlModel.Department" />
+    <EntitySet Name="ProjectDetails" EntityType="KudvenkatsqlModel.ProjectDetail" />
+    <EntitySet Name="SAIs" EntityType="KudvenkatsqlModel.SAI" />
+    <EntitySet Name="SAISKILLS" EntityType="KudvenkatsqlModel.SAISKILL" />
+    <EntitySet Name="selfJointblEmps" EntityType="KudvenkatsqlModel.selfJointblEmp" />
+    <EntitySet Name="SKILL_SAI" EntityType="KudvenkatsqlModel.SKILL_SAI" />
+    <EntitySet Name="TableAs" EntityType="KudvenkatsqlModel.TableA" />
+    <EntitySet Name="TableAEs" EntityType="KudvenkatsqlModel.TableAE" />
+    <EntitySet Name="TableBs" EntityType="KudvenkatsqlModel.TableB" />
+    <EntitySet Name="TableBEs" EntityType="KudvenkatsqlModel.TableBE" />
+    <EntitySet Name="tblDepts" EntityType="KudvenkatsqlModel.tblDept" />
+    <EntitySet Name="tblGenders" EntityType="KudvenkatsqlModel.tblGender" />
+    <EntitySet Name="tblProducts" EntityType="KudvenkatsqlModel.tblProduct" />
+    <EntitySet Name="tblProductsSales" EntityType="KudvenkatsqlModel.tblProductsSale" />
+    <EntitySet Name="tblPersons" EntityType="KudvenkatsqlModel.tblPerson" />
+    <EntitySet Name="tblperson1" EntityType="KudvenkatsqlModel.tblperson1" />
+    <EntitySet Name="tblProductSales" EntityType="KudvenkatsqlModel.tblProductSale" />
+    <AssociationSet Name="FK__Employee__Depart__4924D839" Association="KudvenkatsqlModel.FK__Employee__Depart__4924D839">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPerson_tblGender" Association="KudvenkatsqlModel.FK_tblPerson_tblGender">
+      <End Role="tblGender" EntitySet="tblGenders" />
+      <End Role="tblPerson" EntitySet="tblPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__produ__56B3DD81" Association="KudvenkatsqlModel.FK__tblProduc__produ__56B3DD81">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblProductsSale" EntitySet="tblProductsSales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="KudvenkatsqlModel.FK__Employee__Depart__4924D839" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="ProjectDetail">
+    <Key>
+      <PropertyRef Name="ProjectDetailID" />
+    </Key>
+    <Property Name="ProjectDetailID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeDetailID" Type="Int32" />
+    <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SAI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SKILLID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SAISKILL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="selfJointblEmp">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManagerId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SKILL_SAI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SAIID" Type="Int32" />
+    <Property Name="SKILL" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TableA">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TableAE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TableB">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TableBE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblDept">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblGender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblPersons" Relationship="KudvenkatsqlModel.FK_tblPerson_tblGender" FromRole="tblGender" ToRole="tblPerson" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblProductsSales" Relationship="KudvenkatsqlModel.FK__tblProduc__produ__56B3DD81" FromRole="tblProduct" ToRole="tblProductsSale" />
+  </EntityType>
+  <EntityType Name="tblProductsSale">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="productid" Type="Int32" />
+    <Property Name="unitprice" Type="Int32" />
+    <Property Name="Quantitysold" Type="Int32" />
+    <NavigationProperty Name="tblProduct" Relationship="KudvenkatsqlModel.FK__tblProduc__produ__56B3DD81" FromRole="tblProductsSale" ToRole="tblProduct" />
+  </EntityType>
+  <EntityType Name="tblPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GenderId" Type="Int32" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblGender" Relationship="KudvenkatsqlModel.FK_tblPerson_tblGender" FromRole="tblPerson" ToRole="tblGender" />
+  </EntityType>
+  <EntityType Name="tblperson1">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblProductSale">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="QuantitySold" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__Employee__Depart__4924D839">
+    <End Type="KudvenkatsqlModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="KudvenkatsqlModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPerson_tblGender">
+    <End Type="KudvenkatsqlModel.tblGender" Role="tblGender" Multiplicity="0..1" />
+    <End Type="KudvenkatsqlModel.tblPerson" Role="tblPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblPerson">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__produ__56B3DD81">
+    <End Type="KudvenkatsqlModel.tblProduct" Role="tblProduct" Multiplicity="0..1" />
+    <End Type="KudvenkatsqlModel.tblProductsSale" Role="tblProductsSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblProductsSale">
+        <PropertyRef Name="productid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
